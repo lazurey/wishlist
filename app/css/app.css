@@ -28,3 +28,87 @@
   content: "";
   padding: 0;
 }
+
+body {
+  background-color: #2ECC71;
+}
+
+.wishlist {
+  list-style: none;
+}
+
+.diglog-popup.front {
+  width: 400px;
+  height: 300px;
+  margin: 20px auto;
+  position: relative;
+}
+
+h1, h2, h3 {
+  color: #fff;
+  opacity: 0.8;
+}
+
+.container {
+  width: 720px;
+  margin: 84px auto 20px auto;
+}
+
+.container h1 {
+  text-align: center;
+}
+
+.diglog-popup:before {
+  content: '';
+  border-style: solid;
+  border-width: 12px 12px 12px 0;
+  border-color: transparent #edeff1 transparent transparent;
+  height: 0;
+  position: absolute;
+  left: 50%;
+  top: -18px;
+  width: 0;
+  -webkit-transform: rotate(90deg);
+}
+
+.op-panel {
+  width: 100px;
+  text-align: center;
+  position: absolute;
+  bottom: 20px;
+  left: 30%;
+}
+
+.danteng {
+  position: fixed;
+  background-color: red;
+  display: block;
+  width: 100%;
+  
+}
+.danteng.bottom {
+  bottom: 0;
+}
+.danteng.top {
+  top: 0;
+}
+.danteng .color-item {
+  float: left;
+  width: 10%;
+  height: 64px;
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+
+.danteng .one { background-color: #1ABC9C;}
+.danteng .two { background-color: #F1C40F;}
+.danteng .three { background-color: #2ECC71;}
+.danteng .four { background-color: #E67E22;}
+.danteng .five { background-color: #3498DB;}
+.danteng .six { background-color: #E74C3C;}
+.danteng .seven { background-color: #9B59B6;}
+.danteng .eight { background-color: #ECF0F1;}
+.danteng .nine { background-color: #34495E;}
+.danteng .ten { background-color: #95A5A6;}
+

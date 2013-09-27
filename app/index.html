@@ -1,20 +1,71 @@
 <!doctype html>
-<html lang="en" ng-app="myApp">
+<html lang="en" ng-app="wishlist">
 <head>
   <meta charset="utf-8">
-  <title>My AngularJS App</title>
+  <title>Mono Wishlist</title>
+  <link rel="stylesheet" href="css/bootstrap/css/bootstrap.css"/>
+  <link rel="stylesheet" href="css/flat-ui.css"/>
   <link rel="stylesheet" href="css/app.css"/>
 </head>
 <body>
-  <ul class="menu">
-    <li><a href="#/view1">view1</a></li>
-    <li><a href="#/view2">view2</a></li>
-  </ul>
+  <div class="danteng top">
+    <div class="color-item one"></div>
+    <div class="color-item two"></div>
+    <div class="color-item three"></div>
+    <div class="color-item four"></div>
+    <div class="color-item five"></div>
+    <div class="color-item six"></div>
+    <div class="color-item seven"></div>
+    <div class="color-item eight"></div>
+    <div class="color-item nine"></div>
+    <div class="color-item ten"></div>
+  </div>
 
-  <div ng-view></div>
+  <section class="container">
+    <h1>Bluef wants</h1>
+    <!-- <ul class="menu">
+      <li><a href="#/view1">view1</a></li>
+      <li><a href="#/view2">view2</a></li>
+    </ul>
+ -->
+    <!-- <div ng-view></div> -->
 
-  <div>Angular seed app: v<span app-version></span></div>
+    <div class="diglog-popup front" ng-controller="WishlistCtrl">
+      <ul class="wishlist">
+        <li ng-repeat="item in wishlist">
+          <span class="fui-heart"></span> {{item.name}}
+          before {{item.date}}
+        </li>
+      </ul>
+      <section class="op-panel">
+        <img src="img/tick.png" alt="Done" width="25">
+      </section>
+    </div>
+    <div ng-controller="OwnerListCtrl">
+      <div class="pagination">
+            <ul>
+              <li class="previous"><a href="#fakelink" class="fui-arrow-left"></a></li>
+              <li ng-repeat="owner in owerList">
+                <a href="#{{owner.name}}">{{owner.name}}</a>
+              </li>
+              <li class="next"><a href="#fakelink" class="fui-arrow-right"></a></li>
+            </ul>
+          </div>
+    </div>
 
+  </section>
+  <div class="danteng bottom">
+    <div class="color-item one"></div>
+    <div class="color-item two"></div>
+    <div class="color-item three"></div>
+    <div class="color-item four"></div>
+    <div class="color-item five"></div>
+    <div class="color-item six"></div>
+    <div class="color-item seven"></div>
+    <div class="color-item eight"></div>
+    <div class="color-item nine"></div>
+    <div class="color-item ten"></div>
+  </div>
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
   -->
