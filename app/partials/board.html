@@ -1,0 +1,26 @@
+<h1>{{ownerName}} wants</h1>
+
+<div class="diglog-popup front" ng-controller="WishlistCtrl">
+  <ul class="wishlist">
+    <li ng-repeat="item in wishlist | filter:ownerName | limitTo: 12">
+      <span class="fui-heart alizarin"></span> {{item.name}}
+      before {{item.date}}
+    </li>
+  </ul>
+  <section class="op-panel">
+    <a href="#/history/{{ownerName}}" title="{{ownerName}}'s complete wish"><img src="img/tick.png" alt="Done" width="25" ng-click="switch()"></a>
+    <a href="#/edit/{{ownerName}}" title="edit your wishlist"><img src="img/pensils.png" alt="Done" width="25" ng-click="switch()"></a>
+  </section>
+</div>
+
+<div ng-controller="OwnerListCtrl">
+  <div class="pagination">
+        <ul>
+          <li class="previous"><a href="#fakelink" class="fui-arrow-left"></a></li>
+          <li ng-repeat="owner in ownerList" ng-class="currentOwner(owner)">
+            <a href="#/board/{{owner.name}}">{{owner.name}}</a>
+          </li>
+          <li class="next"><a href="#fakelink" class="fui-arrow-right"></a></li>
+        </ul>
+      </div>
+</div>

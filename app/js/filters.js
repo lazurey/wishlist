@@ -8,3 +8,7 @@ angular.module('wishlist.filters', []).
       return String(text).replace(/\%VERSION\%/mg, version);
     }
   }]);
+
+  // .filter('owner', ['ownerName', function(ownerName) {
+
+  // }]);

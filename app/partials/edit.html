@@ -1,0 +1,20 @@
+<h1>{{ownerName}} wants</h1>
+
+<div class="diglog-popup front" ng-controller="EditWishlistCtrl">
+	<section class="edit-wish">
+		<form ng-submit="addNew()" class="form-group">
+		<span class="fui-heart turquoise"></span><input type="text" ng-model="newWish" placeholder="add new one here" class="form-control"><span class="fui-heart turquoise"></span>
+		</form>
+  </section>
+  <ul class="wishlist">
+    <li ng-repeat="item in wishlist | filter:ownerName | limitTo: 12">
+      <span class="fui-heart alizarin"></span> {{item.name}}
+      before {{item.date}}
+      <span class="fui-check sunflower"></span>
+      <span class="fui-cross alizarin"></span>
+    </li>
+  </ul>
+  <section class="op-panel">
+    <a href="#/board/{{ownerName}}"><img src="img/gift.png" alt="Done" width="25" ng-click="switch()"></a>
+  </section>
+</div>

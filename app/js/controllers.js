@@ -12,29 +12,42 @@ angular.module('wishlist.controllers', []).
 
   }]);
 
-
-function WishlistCtrl($scope) {
-  $scope.wishlist = [
-    {"name": "book", "date": "2013-12-12", "buyer": "", "owner": "3eye"},
-    {"name": "book", "date": "2013-12-12", "buyer": "", "owner": "Awaw"},
-    {"name": "book", "date": "2013-12-12", "buyer": "", "owner": "Bluef"},
-    {"name": "book1", "date": "2013-12-12", "buyer": "", "owner": "Hawk"},
-  ];
- 
-  // $scope.owner = 'bluef';
+function WishBoardCtrl($scope, $routeParams) {
+  $scope.ownerName = $routeParams.ownerName;
+  $scope.bg = 'background-color: ';
+  $scope.currentOwner = function (owner) {
+  	if (owner.name == $scope.ownerName) {
+  		$scope.bg += owner.background;
+  		return "active";
+  	} else {
+  		return "";
+  	}
+  }
 }
 
-function OwnerListCtrl($scope) {
-	$scope.owerList = [
-		{"name": "3eye", "background": "#1ABC9C"},
-		{"name": "Awaw", "background": "#F1C40F"},
-		{"name": "Bluef", "background": "#2ECC71"},
-		{"name": "Hawk", "background": "#E67E22"},
-		{"name": "Killa", "background": "#3498DB"},
-		{"name": "Loading99", "background": "#E74C3C"},
-		{"name": "Nereid", "background": "#9B59B6"},
-		{"name": "Peter", "background": "#ECF0F1"},
-		{"name": "Sause", "background": "#34495E"},
-		{"name": "Sub040", "background": "#95A5A6"},
-	];
+function EditWishlistCtrl($scope, $routeParams, $http) {
+	$scope.ownerName = $routeParams.ownerName;
+	$http.get('wishlist/wishlist.json').success(function(data) {
+		$scope.wishlist = data;
+	});
+
+	$scope.addNew = function() {
+		$scope.wishlist.push({"name": $scope.newWish, "date": "2013-12-12", "buyer": "", "owner": $scope.ownerName, "status": "open"});
+		$scope.wishlist.$save();
+		$scope.newWish = '';
+	};
+}
+
+function WishlistCtrl($scope, $http) {
+  $http.get('wishlist/wishlist.json').success(function(data) {
+    $scope.wishlist = data;
+  });
+}
+
+WishlistCtrl.$inject = ['$scope', '$http'];
+
+function OwnerListCtrl($scope, $http) {
+	$http.get('wishlist/owner.json').success(function(data) {
+		$scope.ownerList = data.slice(0, 10);
+	});
 }
